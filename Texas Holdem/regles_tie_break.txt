@@ -1,0 +1,45 @@
+QUINTE FLUSH ROYALE : 10
+	- tie break 1 : NONE
+
+QUINTE FLUSH : 9
+	- tie break 1 : valeur la plus grande de la suite
+
+CARRE : 8
+	- tie break 1 : valeur du carré
+	- tie break 2 : meilleure 5ème carte (hors carré)
+
+FULL : 7 
+	- tie break 1 : valeur du triple
+	- tie break 2 : valeur du double
+
+COULEUR : 6
+	- tie break 1 : meilleure 1ère carte de la couleur
+	- tie break 2 : meilleure 2ème carte de la couleur
+	- tie break 3 : meilleure 3ème carte de la couleur
+	- tie break 4 : meilleure 4ème carte de la couleur
+	- tie break 5 : meilleure 5ème carte de la couleur
+
+QUINTE : 5 
+	- tie break 1 : valeur la plus grande de la suite
+
+BRELAN : 4
+	- tie break 1 : meilleure 4ème carte (hors brelan)
+	- tie break 2 : meilleure 5ème carte (hors brelan)
+
+DOUBLE PAIRE : 3
+	- tie break 1 : valeur de la meilleure paire
+	- tie break 2 : valeur de la deuxième meilleure paire
+	- tie break 3 : meilleure 5ème carte (hors paires)
+
+PAIRE : 2
+	- tie break 1 : valeur de la paire
+	- tie break 2 : meilleure 3ème carte (hors paire)
+	- tie break 3 : meilleure 4ème carte (hors paire)
+	- tie break 4 : meilleure 5ème carte (hors paire)
+
+CARTE HAUTE : 1
+	- tie break 1 : 1ère meilleure carte
+	- tie break 2 : 2ème meilleure carte
+	- tie break 3 : 3ème meilleure carte
+	- tie break 4 : 4ème meilleure carte
+	- tie break 5 : 5ème meilleure carte
