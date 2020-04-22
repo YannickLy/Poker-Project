@@ -1,16 +1,17 @@
+from common import Constantes as c
+from game.Poker import poker
+from common.Timer import timer
+from clustering.HistWin import histwin
+
 import seaborn as sns
-import Constantes as c
 import random
 import pandas as pd
 import numpy as np
-import scipy.spatial.distance as ssd
 
-from Poker import poker
-from Timer import timer
-from HistWin import histwin
 from scipy import stats
 from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
 from matplotlib import pyplot as plt
+import scipy.spatial.distance as ssd
 
 # Test de la fonction principale
 
@@ -55,7 +56,7 @@ t.stop()
 T1 = t.total_run_time()
 sns.distplot(ProbWinJ1, bins = 10, kde = False)
 
-# Distance d'histogrammes et clustering
+######### DICO PRE-FLOP #########
 
 all_combinaisons_J1 = []
 for i in range(0, 13):

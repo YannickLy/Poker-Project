@@ -1,4 +1,4 @@
-from common import Constantes as c
+import Constantes as c
 
 import numpy as np
 

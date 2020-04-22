@@ -1,4 +1,4 @@
-from common.Cartes import cartes
+from Cartes import cartes
 
 class poker:
     

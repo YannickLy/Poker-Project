@@ -1,8 +1,8 @@
 import Constantes as c
+from Poker import poker
+
 import random
 import numpy as np
-
-from Poker import poker
 
 class histwin:
     
