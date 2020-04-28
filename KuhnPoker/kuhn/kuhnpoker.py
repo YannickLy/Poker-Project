@@ -1,4 +1,4 @@
-from KuhnPoker.common import constantes as c
+from common import constants as c
 import random
 
 class Noeud:

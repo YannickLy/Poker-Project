@@ -17,5 +17,4 @@ SCORE_PAIRE = 2
 SCORE_HAUTEUR = 1
 
 CARTES = [v+s for s in ['H', 'D', 'S', 'C'] for v in [str(i) for i in range(2, 10)] + list("TJKQA")]
-NB_SIMUL_RIVIERE = 1000
-NB_SIMUL_J2 = 1000
+

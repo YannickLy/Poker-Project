@@ -1,5 +1,5 @@
 import numpy as np
-from TexasHoldem.common import constantes as c
+from common import constantes as c
 
 class main:
     

@@ -1,6 +1,5 @@
-from KuhnPoker.common import constantes as c
-from KuhnPoker.algorithms.func import init_information_set_proba, init_information_set_vide
-
+from common import constants as c
+from common.func import init_information_set_proba, init_information_set_vide
 import copy
 
 class CounterfactualRegretMinimization:

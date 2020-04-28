@@ -1,4 +1,4 @@
-from TexasHoldem.common.main import main
+from texasholdem.main import main
 
 class gagnant:
     

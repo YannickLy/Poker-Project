@@ -1,4 +1,4 @@
-from KuhnPoker.algorithms.func import init_information_set_vide
+from common.func import init_information_set_vide
 import random
 
 def random_strategy(arbre):
