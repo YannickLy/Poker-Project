@@ -84,4 +84,5 @@ if __name__ == "__main__":
     max_d = 1.5
     clusters = fcluster(Z, max_d, criterion = 'distance')
     print(clusters)
+    print('')
    
