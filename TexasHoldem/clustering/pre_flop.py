@@ -40,7 +40,6 @@ if __name__ == "__main__":
     t = timer()
     t.start()
 
-    test_combinaisons_J1 = [['4S', '4C'], ['JS', 'TS'], ['2D', '3H']]
     all_combinaisons_preflop = []
     for i in range(0, 13):
         for j in range(i, 13):
@@ -50,19 +49,18 @@ if __name__ == "__main__":
     
     L = multiprocessing.Manager().list()
     pool = multiprocessing.Pool(multiprocessing.cpu_count() - 1)
-    [pool.apply_async(compute_cluster_preflop, args = [n, L]) for n in test_combinaisons_J1]
+    [pool.apply_async(compute_cluster_preflop, args = [n, L]) for n in all_combinaisons_preflop]
     pool.close()
     pool.join()
 
     t.stop()
     print(t.total_run_time())
-    print(L)
 
     df = pd.DataFrame()
     for e in L:
         df[str(e[0])] = e[1]
 
-    n = len(test_combinaisons_J1)
+    n = len(all_combinaisons_preflop)
     M = np.zeros((n,n))
     bin_locations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     for i in range(n):
@@ -81,9 +79,9 @@ if __name__ == "__main__":
         Z,
         leaf_rotation=90.,
         leaf_font_size=8.)
-    plt.show()
+    plt.savefig('test.png')
     
-    max_d = 3
-    res = clusters = fcluster(Z, max_d, criterion='distance')
-    print(res)
+    max_d = 1.5
+    clusters = fcluster(Z, max_d, criterion = 'distance')
+    print(clusters)
    
