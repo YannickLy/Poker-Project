@@ -1,0 +1,27 @@
+KQ = "KQ" # J = Valet, Q = Reine, K = Roi, A = As
+KJ = "KJ"
+QK = "QK"
+QJ = "QJ"
+JK = "JK"
+JQ = "JQ" 
+
+CHANCE = "CHANCE"
+CHECK = "CHECK"
+CALL = "CALL"
+FOLD = "FOLD"
+BET = "BET"
+
+COMBINAISONS_CARTES = [KQ, KJ, QK, QJ, JK, JQ]
+
+J1 = 1
+J2 = -1
+
+GAGNANT = {}
+GAGNANT[QK] = J2
+GAGNANT[JK] = J2
+GAGNANT[JQ] = J2
+GAGNANT[KQ] = J1
+GAGNANT[KJ] = J1
+GAGNANT[QJ] = J1
+
+
