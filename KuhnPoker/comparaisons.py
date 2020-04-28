@@ -3,6 +3,7 @@ from KuhnPoker.common import constantes as c
 from KuhnPoker.algorithms.CRM import CRM, lightCRM
 from KuhnPoker.algorithms.random_strategy import random_strategy
 import numpy as np
+from random import randrange
 
 arbre = NoeudChance(c.COMBINAISONS_CARTES)
 
@@ -16,10 +17,19 @@ CRM = CRM(arbre)
 CRM.run(10000)
 CRM.compute_equilibre_nash()
 
-def compare_strat(strat_joueur1, strat_joueur2, iterations=10000):
-    victoires = {c.J1:{'nb':0, 'gain':0}, c.J2:{'nb':0, 'gain':0}}
+def compare_strat(strat1, strat2, iterations=10000):
+    victoires = {1:{'nb':0, 'payoff':0}, -1:{'nb':0, 'payoff':0}}
     
     for _ in range(iterations):
+        
+        qui_commence = randrange(2)
+        if qui_commence == 0:
+            strat_joueur1 = strat1
+            strat_joueur2 = strat2
+        else:
+            strat_joueur1 = strat2
+            strat_joueur2 = strat1
+            
         pot_init = 0.5*2
         
         etat = arbre.sample_one()
@@ -41,17 +51,21 @@ def compare_strat(strat_joueur1, strat_joueur2, iterations=10000):
             J = -J
         
         if etat.historique_actions[-1] == 'CHECK' and etat.historique_actions[-2] == 'CHECK':
-            winner = c.GAGNANT[etat.cartes]
+            winner = c.GAGNANT[etat.cartes] if qui_commence == 0 else -c.GAGNANT[etat.cartes]
             pot = pot_init
         elif etat.historique_actions[-1] == 'CALL' and etat.historique_actions[-2] == 'BET':
-            winner = c.GAGNANT[etat.cartes]
+            winner = c.GAGNANT[etat.cartes] if qui_commence == 0 else -c.GAGNANT[etat.cartes]
             pot = pot_init * 2
         elif etat.historique_actions[-1] == 'FOLD':
             pot = pot_init * 1.5
-            winner = c.J1 if len(etat.historique_actions) == 2 else c.J2
-    
+            if (len(etat.historique_actions) == 2 and qui_commence == 0) or (len(etat.historique_actions) == 3 and qui_commence == 1):
+                winner = c.J1
+            else:
+                winner = c.J2        
+        
         victoires[winner]['nb'] += 1
-        victoires[winner]['gain'] += pot
+        victoires[winner]['payoff'] += pot
+        victoires[-winner]['payoff'] -= pot
         
     return victoires
 
