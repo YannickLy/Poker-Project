@@ -367,5 +367,3 @@ df_compare.loc['Payoff'] = [compare_OptEspGain_Random_J['Opt_EspGain']['payoff']
 df_compare.loc['Victoire'] = [compare_OptEspGain_Random_J['Opt_EspGain']['nb_victoire'], compare_OptEspGain_Random_J['Random']['nb_victoire']]
 print(df_compare)
 
-print('')
-
