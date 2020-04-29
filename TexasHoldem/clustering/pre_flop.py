@@ -6,6 +6,7 @@ import multiprocessing
 import random
 import numpy as np
 import pandas as pd
+import pickle
 from scipy import stats
 from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
 from matplotlib import pyplot as plt
@@ -57,6 +58,7 @@ if __name__ == "__main__":
     for e in L:
         df[str(e[0])] = e[1]
 
+    # Matrice distance de wasserstein
     n = len(all_combinaisons_preflop)
     M = np.zeros((n,n))
     bin_locations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -65,9 +67,9 @@ if __name__ == "__main__":
             M[i,j] = stats.wasserstein_distance(bin_locations, bin_locations, df.iloc[:,i], df.iloc[:,j])
             M[j,i] = M[i,j]
     
+    # Clustering
     distArray = ssd.squareform(M)  
     Z = linkage(distArray, 'ward')
-    
     plt.figure(figsize=(50, 50))
     plt.title('Hierarchical Clustering Dendrogram')
     plt.xlabel('sample index')
@@ -76,10 +78,16 @@ if __name__ == "__main__":
         Z,
         leaf_rotation=90.,
         leaf_font_size=8.)
-    plt.savefig('test.png')
-    
+    plt.savefig('clustering/cluster_preflop.png')
     clusters = fcluster(Z, 1.8, criterion = 'distance') # avec une distance maximale de 1.8, nous réduisons le nombre de cluster à 8.
-    print(clusters)
+
+    # Store clusters (serialize)
+    preflop = {}
+    for i in range(n):
+        preflop[df.columns[i]] = clusters[i]
+    with open('clustering/dico_preflop.pickle', 'wb') as handle:
+        pickle.dump(preflop, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
     t.stop()
     print(t.total_run_time())
    

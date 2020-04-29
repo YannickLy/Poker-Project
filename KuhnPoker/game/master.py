@@ -1,6 +1,6 @@
 from kuhn.kuhnpoker import NoeudChance
 from common import constants as c
-from strategies.strategy import lightCRM_model, CRM_model, random_model
+from strategies.strategy import lightCRM_model, CRM_model, opt_espgain_model, random_model
 import random
 
 def start_game():
@@ -9,13 +9,16 @@ def start_game():
     lightCRM = lightCRM_model(arbre)
     CRM = CRM_model(arbre)
     Random = random_model(arbre)
+    opt_esp = opt_espgain_model(arbre)
 
     print('**************************************************')
     print('Les IA disponibles sont : ')
     print(' 1/ lightCRM')
     print(' 2/ CRM')
-    print(' 3/ random')
+    print(' 3/ Optimal Esperance Gain')
+    print(' 4/ random')
     choix = input('Contre quelle IA souahaitez-vous jouer ? ')
+    print('**************************************************')
     if choix == '1':
         strat_IA = lightCRM.run(10000)
         print("Vous avez fait le choix de jouer contre l'IA lightCRM.")
@@ -23,10 +26,12 @@ def start_game():
         strat_IA = CRM.run(10000)
         print("Vous avez fait le choix de jouer contre l'IA CRM.")
     elif choix == '3':
+        strat_IA = opt_esp.run()
+        print("Vous avez fait le choix de jouer contre l'IA Optimal Esperance Gain.")
+    elif choix == '4':
         strat_IA = Random.run()
         print("Vous avez fait le choix de jouer contre l'IA random.")
-    print('**************************************************')
-
+    
     qui_commence = random.randrange(2)
     bot = c.J1 if qui_commence == 1 else c.J2
     joueur = c.J1 if qui_commence == 0 else c.J2

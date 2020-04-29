@@ -1,5 +1,6 @@
 from algorithms.CRM import CRM, lightCRM
 from algorithms.random_strategy import random_strategy
+from algorithms.opt_espgain_strategy import opt_espgain_strategy
 
 class Strategy:
     def __init__(self, arbre):
@@ -35,10 +36,10 @@ class random_model(Strategy):
     def run(self):
         return random_strategy(self.arbre)
 
-# class custom_model(Strategy):
+class opt_espgain_model(Strategy):
 
-#     def __init__(self, arbre):
-#         super().__init__(arbre = arbre)
+    def __init__(self, arbre):
+        super().__init__(arbre = arbre)
 
-#     def run(self):
-#         return custom_strategy(self.arbre)
+    def run(self):
+        return opt_espgain_strategy(self.arbre)
