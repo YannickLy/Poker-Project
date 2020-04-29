@@ -1,9 +1,31 @@
 from kuhn.kuhnpoker import NoeudChance
 from common import constants as c
-from strategies.strategy import Strategy
+from strategies.strategy import lightCRM_model, CRM_model, random_model
 import random
 
-def start_game(strat_IA):
+def start_game():
+
+    arbre = NoeudChance(c.COMBINAISONS_CARTES)
+    lightCRM = lightCRM_model(arbre)
+    CRM = CRM_model(arbre)
+    Random = random_model(arbre)
+
+    print('**************************************************')
+    print('Les IA disponibles sont : ')
+    print(' 1/ lightCRM')
+    print(' 2/ CRM')
+    print(' 3/ random')
+    choix = input('Contre quelle IA souahaitez-vous jouer ? ')
+    if choix == '1':
+        strat_IA = lightCRM.run(10000)
+        print("Vous avez fait le choix de jouer contre l'IA lightCRM.")
+    elif choix == '2':
+        strat_IA = CRM.run(10000)
+        print("Vous avez fait le choix de jouer contre l'IA CRM.")
+    elif choix == '3':
+        strat_IA = Random.run()
+        print("Vous avez fait le choix de jouer contre l'IA random.")
+    print('**************************************************')
 
     qui_commence = random.randrange(2)
     bot = c.J1 if qui_commence == 1 else c.J2
@@ -64,11 +86,4 @@ def start_game(strat_IA):
             print("Vous avez gagné !")            
         print('Pot : {}€'.format(pot))
 
-arbre = NoeudChance(c.COMBINAISONS_CARTES)
-s = Strategy(arbre)
-
-Random = s.Random()
-CRM = s.CRM(10000)
-lightCRM = s.lightCRM(10000)
-
-start_game(CRM)
+start_game()

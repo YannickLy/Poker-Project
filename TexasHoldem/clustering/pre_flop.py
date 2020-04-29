@@ -53,9 +53,6 @@ if __name__ == "__main__":
     pool.close()
     pool.join()
 
-    t.stop()
-    print(t.total_run_time())
-
     df = pd.DataFrame()
     for e in L:
         df[str(e[0])] = e[1]
@@ -81,8 +78,8 @@ if __name__ == "__main__":
         leaf_font_size=8.)
     plt.savefig('test.png')
     
-    max_d = 1.5
-    clusters = fcluster(Z, max_d, criterion = 'distance')
+    clusters = fcluster(Z, 1.8, criterion = 'distance') # avec une distance maximale de 1.8, nous réduisons le nombre de cluster à 8.
     print(clusters)
-    print('')
+    t.stop()
+    print(t.total_run_time())
    
