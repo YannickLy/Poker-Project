@@ -26,8 +26,8 @@ opt_espgain = opt_espgain_model(arbre)
 
 lightCRM_tree = lightCRM.run(10000)  
 CRM_tree = CRM.run(10000)  
-Random_tree = Random.run()
-opt_espgain_tree = opt_espgain.run()
+Random_tree = Random.run()  
+opt_espgain_tree = opt_espgain.run()  
 
 ## Les différents travaux sur les clusters et les fonctions annexes pour le Texas Holdem sont présents dans les différents sous-dossiers de "TexasHoldem"
 
