@@ -4,10 +4,6 @@ import random
 import pandas as pd
 import numpy as np
 
-from scipy import stats
-from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
-import scipy.spatial.distance as ssd
-
 from common import constantes as c
 from texasholdem.gagnant import gagnant
 from texasholdem.main import main
