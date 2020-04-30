@@ -10,16 +10,24 @@ t.stop()
 print(t.total_run_time())
 print(preflop)
 
+
 ##################
 
 from common import constantes as c
 import pandas as pd
 import numpy as np
 import pprint
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+pprint.pprint(preflop)
 
 cartes =[]
 cartes[:0] = c.VALEURS
 matrice = np.zeros([len(cartes), len(cartes)])
+df = pd.DataFrame(columns = cartes)
+df['cartes'] = cartes
+df.set_index(['cartes'], inplace=True)
 
 for key in preflop.keys():
     val1 = key[2]
@@ -28,10 +36,14 @@ for key in preflop.keys():
     col2 = key[9]
 
     if col1 == col2:
-        matrice[c.VALEURS.find(val1)][c.VALEURS.find(val2)] = preflop[key]  #suited
+        df.iloc[c.VALEURS.find(val1), c.VALEURS.find(val2)] = int(preflop[key]) #suited
     else:
-        matrice[c.VALEURS.find(val2)][c.VALEURS.find(val1)] = preflop[key]  #unsuited
-     
-df = pd.DataFrame(matrice, columns = cartes)
-df['cartes'] = cartes
-df.set_index(['cartes'], inplace=True)
+        df.iloc[c.VALEURS.find(val2), c.VALEURS.find(val1)] = int(preflop[key])  #unsuited
+
+fig = plt.figure(figsize=(20,15))
+ax = sns.heatmap(df, annot=True)
+ax.set_xlabel('Unsuited')
+ax.set_ylabel('Suited')
+plt.savefig("clustering/clusters.png")
+
+
