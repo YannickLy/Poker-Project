@@ -14,20 +14,20 @@ start_game()
 1. Placez vous au niveau du dossier "KuhnPoker"
 2. Lancez les commandes suivantes : 
 
-from kuhn.kuhnpoker import NoeudChance
-from strategies.strategy import lightCRM_model, CRM_model, opt_espgain_model, random_model
-from common import constants as c
+from kuhn.kuhnpoker import NoeudChance //
+from strategies.strategy import lightCRM_model, CRM_model, opt_espgain_model, random_model //
+from common import constants as c //
 
-arbre = NoeudChance(c.COMBINAISONS_CARTES)
-lightCRM = lightCRM_model(arbre)
-CRM = CRM_model(arbre)
-Random = random_model(arbre)
-opt_espgain = opt_espgain_model(arbre)
+arbre = NoeudChance(c.COMBINAISONS_CARTES) //
+lightCRM = lightCRM_model(arbre) //
+CRM = CRM_model(arbre) //
+Random = random_model(arbre) //
+opt_espgain = opt_espgain_model(arbre) //
 
-lightCRM_tree = lightCRM.run(10000)
-CRM_tree = CRM.run(10000)
-Random_tree = Random.run(10000)
-opt_espgain_tree = opt_espgain.run(10000)
+lightCRM_tree = lightCRM.run(10000) //
+CRM_tree = CRM.run(10000) //
+Random_tree = Random.run(10000) //
+opt_espgain_tree = opt_espgain.run(10000) //
 
 ## Les différents travaux sur les clusters et les fonctions annexes pour le Texas Holdem sont présents dans les différents sous-dossiers de "TexasHoldem"
 
