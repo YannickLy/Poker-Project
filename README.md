@@ -2,6 +2,7 @@
 
 Le but de ce projet est de créer une IA pour le Limit Texas Hold'em à deux joueurs en utilisant la méthode de "Counterfactual Regret Minimization" afin de trouver un équilibre de Nash.
 L'implémentation se passera en deux étapes : tout d'abord, l'implémentation de cet algorithme dans un poker simplifié qu'est le Kuhn Poker et enfin la transposition au Limit Texas Hold'em.
+N'hésitez pas à consulter le rapport afin d'avoir plus de détails concernant la démarche et le projet.
 
 ## Pour pouvoir jouer contre une des IA implémentées pour le Kuhn Poker, la manipulation est la suivante :
 
