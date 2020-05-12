@@ -40,3 +40,5 @@ opt_espgain_tree = opt_espgain.run()
 * Eléonore Blanchard
 * Yannick Ly
 
+Nous remercions Loic Midy pour sa supervision durant ce projet.
+
