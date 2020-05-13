@@ -2,11 +2,9 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 import random
 import pandas as pd
-import numpy as np
 
 from common import constantes as c
 from texasholdem.gagnant import gagnant
-from texasholdem.main import main
 from common.timer import timer
 
 # Test de la fonction pour déterminer le gagnant
