@@ -4,6 +4,9 @@ Le but de ce projet est de créer une IA pour le Limit Texas Hold'em à deux jou
 L'implémentation se passera en deux étapes : tout d'abord, l'implémentation de cet algorithme dans un poker simplifié qu'est le Kuhn Poker et enfin la transposition au Limit Texas Hold'em.
 N'hésitez pas à consulter le rapport afin d'avoir plus de détails concernant la démarche et le projet.
 
+
+![DCGAN](https://raw.githubusercontent.com/YannickLy/Poker-Project-ENSAE-2020/master/TexasHoldem/texasholdem/texasholdem_tree_simplify.png)  
+
 ## Pour pouvoir jouer contre une des IA implémentées pour le Kuhn Poker, la manipulation est la suivante :
 
 1. Placez vous au niveau du dossier "KuhnPoker"
