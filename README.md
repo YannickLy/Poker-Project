@@ -4,9 +4,11 @@ Le but de ce projet est de créer une IA pour le Limit Texas Hold'em à deux jou
 L'implémentation se passera en deux étapes : tout d'abord, l'implémentation de cet algorithme dans un poker simplifié qu'est le Kuhn Poker et enfin la transposition au Limit Texas Hold'em.
 N'hésitez pas à consulter le rapport afin d'avoir plus de détails concernant la démarche et le projet.
 
+--------------------------------
 ### Arbre du jeu du Kuhn Poker
 ![KP](https://raw.githubusercontent.com/YannickLy/Poker-Project-ENSAE-2020/master/KuhnPoker/kuhn/kuhn-game-tree-imperfect.png)  
 
+-------------------------------
 ### Arbre du jeu du Limit Texas Hold'em à deux joueurs avec création de clusters
 ![LTH](https://raw.githubusercontent.com/YannickLy/Poker-Project-ENSAE-2020/master/TexasHoldem/texasholdem/texasholdem_tree_simplify.png)  
 
@@ -39,7 +41,8 @@ CRM_tree = CRM.run(10000)
 Random_tree = Random.run()  
 opt_espgain_tree = opt_espgain.run()  
 
-## Les différents travaux sur les clusters et les fonctions annexes pour le Texas Holdem sont présents dans les différents sous-dossiers de "TexasHoldem"
+-------------------------------------
+Les différents travaux sur les clusters et les fonctions annexes pour le Texas Holdem sont présents dans les différents sous-dossiers de "TexasHoldem"
 
 ## Auteurs
 
